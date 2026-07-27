@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — Redundancy Calculator AU</title>
+<meta name="description" content="About Redundancy Calculator AU — a free tool to help Australian employees estimate their NES redundancy pay entitlement.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="legal-page">
+
+<header>
+  <div class="inner">
+    <a href="index.html" class="logo">Redundancy Calculator <span class="tag">AU</span></a>
+    <nav>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="eyebrow">About this tool</div>
+  <h1>Clarity, not paperwork.</h1>
+
+  <p>Redundancy Calculator AU is a free tool built to help Australian employees quickly estimate their minimum redundancy pay entitlement under the National Employment Standards (NES), part of the Fair Work Act 2009.</p>
+
+  <p>Facing redundancy is stressful, and understanding what you're owed shouldn't add to that. This site exists to give a fast, straightforward estimate — no sign-up, no email required — so you know roughly where you stand before speaking with HR, a union representative, or an employment lawyer.</p>
+
+  <h2>What this site does</h2>
+  <p>Our calculator applies the NES sliding scale of redundancy pay (4 to 16 weeks, tapering to 12 weeks after 10 years) to your entered years of service and base weekly pay, giving you an instant estimate of your minimum entitlement.</p>
+
+  <h2>What this site doesn't do</h2>
+  <p>This calculator does not provide legal or financial advice, and it does not account for enterprise agreements, modern awards, or individual employment contracts that may entitle you to more than the NES minimum. It also doesn't calculate tax on your payout — for that, consult the ATO or a tax professional.</p>
+
+  <h2>Our commitment to accuracy</h2>
+  <p>The figures used in this calculator are based on the National Employment Standards as published by the Fair Work Ombudsman. We review the underlying formula periodically, but employment law can change — always confirm your entitlement with an official source or professional before relying on it for a financial decision.</p>
+
+  <p>Have a question or spot something that looks wrong? <a href="contact.html">Get in touch</a>.</p>
+</main>
+
+<footer>
+  <div>
+    <a href="about.html">About</a> ·
+    <a href="contact.html">Contact</a> ·
+    <a href="privacy.html">Privacy Policy</a> ·
+    <a href="terms.html">Terms of Use</a>
+  </div>
+  <p style="margin-top:10px;">© <span id="year"></span> Redundancy Calculator AU. Not affiliated with the Fair Work Ombudsman or the Australian Government.</p>
+</footer>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
