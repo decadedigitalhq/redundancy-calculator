@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Redundancy Pay Calculator Australia (NES) — Free & Instant</title>
-<meta name="description" content="Free Australian redundancy pay calculator based on the National Employment Standards (NES). Enter your years of service and weekly pay to estimate your entitlement.">
+<meta name="description" content="Free Australian redundancy, notice period and annual leave payout calculator based on the National Employment Standards (NES). See your full termination payout in one place.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="icon" href="favicon.ico" sizes="any">
@@ -17,7 +17,22 @@
 
 <header>
   <div class="inner">
-    <a href="index.html" class="logo">Redundancy Calculator <span class="tag">AU</span></a>
+    <a href="index.html" class="logo">
+      <svg width="30" height="30" viewBox="0 0 512 512" aria-hidden="true">
+        <rect width="512" height="512" rx="112" fill="#07332c"/>
+        <rect x="128" y="96" width="256" height="320" rx="20" fill="#f4f4ef"/>
+        <rect x="128" y="96" width="256" height="66" rx="20" fill="#0b5d52"/>
+        <rect x="128" y="142" width="256" height="20" fill="#0b5d52"/>
+        <circle cx="166" cy="129" r="10" fill="#b9873a"/>
+        <rect x="168" y="210" width="150" height="16" rx="4" fill="none" stroke="#9aa398" stroke-width="2" stroke-dasharray="1 10" stroke-linecap="round"/>
+        <rect x="330" y="210" width="54" height="16" rx="4" fill="#46564f"/>
+        <rect x="168" y="256" width="150" height="16" rx="4" fill="none" stroke="#9aa398" stroke-width="2" stroke-dasharray="1 10" stroke-linecap="round"/>
+        <rect x="318" y="256" width="66" height="16" rx="4" fill="#46564f"/>
+        <line x1="152" y1="304" x2="384" y2="304" stroke="#c3c9ba" stroke-width="4" stroke-dasharray="10 8" stroke-linecap="round"/>
+        <rect x="290" y="324" width="94" height="30" rx="6" fill="#b9873a"/>
+      </svg>
+      Redundancy Calculator <span class="tag">AU</span>
+    </a>
     <nav>
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
@@ -28,23 +43,34 @@
 </header>
 
 <main>
-  <div class="eyebrow">NES Redundancy Entitlement · Australia</div>
+  <div class="eyebrow">NES Termination Payout · Australia</div>
   <h1>Know exactly what you're owed.</h1>
-  <p class="subtitle">Enter your years of service and base weekly pay for an instant estimate of your minimum redundancy entitlement under the National Employment Standards — no sign-up, no thirty-question form.</p>
+  <p class="subtitle">Whether you've already been given notice or you're just weighing up an offer, see your full estimated payout — redundancy pay, notice pay, and unused annual leave — in one place.</p>
 
   <div class="calculator">
-    <div class="card-head"><span><span class="dot"></span>Redundancy Estimate</span><span>NES 2026</span></div>
+    <div class="card-head"><span><span class="dot"></span>Full Payout Estimate</span><span>NES 2026</span></div>
     <div class="card-body">
+
+      <div class="section-label">Your service</div>
+
       <div class="field">
         <label for="years">Years of continuous service</label>
         <input type="number" id="years" min="0" step="0.1" placeholder="e.g. 5">
-        <div class="hint">Use decimals for part years — 4.5 means 4 years and 6 months.</div>
+        <div class="hint">Use decimals for part years — 4.5 means 4 years and 6 months. Find your start date on your original employment contract or letter of offer.</div>
       </div>
 
       <div class="field">
-        <label for="weeklyPay">Base weekly pay ($)</label>
-        <input type="number" id="weeklyPay" min="0" step="1" placeholder="e.g. 1500">
-        <div class="hint">Your ordinary base rate only — exclude overtime, bonuses, allowances, and super.</div>
+        <label for="payAmount">Your pay</label>
+        <div class="field-row">
+          <input type="number" id="payAmount" min="0" step="1" placeholder="e.g. 1500">
+          <select id="payPeriod">
+            <option value="weekly">per week</option>
+            <option value="fortnightly">per fortnight</option>
+            <option value="monthly">per month</option>
+            <option value="yearly">per year</option>
+          </select>
+        </div>
+        <div class="hint">Your ordinary base rate only — exclude overtime, bonuses, allowances, and super. Find this on your most recent payslip, usually labelled "gross pay" for the period.</div>
       </div>
 
       <div class="checkbox-field">
@@ -52,7 +78,25 @@
         <label for="smallBusiness">My employer has fewer than 15 employees (small business)</label>
       </div>
 
-      <button class="calc-btn" onclick="calculateRedundancy()">Calculate My Redundancy Pay</button>
+      <div class="checkbox-field">
+        <input type="checkbox" id="over45">
+        <label for="over45">I am 45 or older and have 2+ years of service (extra week of notice)</label>
+      </div>
+
+      <div class="section-label">Leave balance (optional)</div>
+
+      <div class="field">
+        <label for="leaveWeeks">Unused annual leave (weeks)</label>
+        <input type="number" id="leaveWeeks" min="0" step="0.1" placeholder="e.g. 2.4">
+        <div class="hint">Find your leave balance on your latest payslip. If it's shown in days, divide by 5 (e.g. 12 days ÷ 5 = 2.4 weeks). Leave this blank if you're not including leave.</div>
+      </div>
+
+      <div class="checkbox-field">
+        <input type="checkbox" id="leaveLoading">
+        <label for="leaveLoading">My leave payout includes 17.5% leave loading (check your award or contract)</label>
+      </div>
+
+      <button class="calc-btn" onclick="calculatePayout()">Calculate My Full Payout</button>
 
       <div class="tear-line" id="tearLine"></div>
       <div class="result" id="resultBox">
@@ -61,10 +105,11 @@
     </div>
   </div>
 
-  <h2>How redundancy pay is calculated</h2>
-  <p>Under the National Employment Standards (NES) in the Fair Work Act 2009, most employees with at least one year of continuous service are entitled to a minimum redundancy payment when their role is genuinely made redundant. The payment is calculated as:</p>
-  <p><strong>Redundancy pay = base weekly pay × number of weeks (set by years of service)</strong></p>
+  <h2>How your payout is calculated</h2>
+  <p>A termination payout can include up to three separate NES entitlements, calculated independently and added together:</p>
+  <p><strong>Total payout = redundancy pay + notice pay (if paid in lieu) + unused annual leave</strong></p>
 
+  <h3>1. Redundancy pay</h3>
   <div class="ledger">
     <div class="ledger-row"><span class="label">Less than 1 year</span><span class="filler"></span><span class="value">Nil</span></div>
     <div class="ledger-row"><span class="label">1 year to less than 2 years</span><span class="filler"></span><span class="value">4 weeks</span></div>
@@ -78,50 +123,78 @@
     <div class="ledger-row"><span class="label">9 years to less than 10 years</span><span class="filler"></span><span class="value">16 weeks</span></div>
     <div class="ledger-row total"><span class="label">10 years or more</span><span class="filler"></span><span class="value">12 weeks*</span></div>
   </div>
-  <p class="ledger-note">*Redundancy pay reduces to 12 weeks at 10+ years of service, following the Australian Industrial Relations Commission's 2004 Redundancy Case. Small business employers (fewer than 15 employees) are generally exempt from NES redundancy pay entirely.</p>
+  <p class="ledger-note">*Reduces to 12 weeks at 10+ years, following the 2004 Redundancy Case. Small business employers (fewer than 15 employees) are generally exempt from redundancy pay entirely.</p>
+
+  <h3>2. Notice pay (if paid in lieu)</h3>
+  <div class="ledger">
+    <div class="ledger-row"><span class="label">1 year or less</span><span class="filler"></span><span class="value">1 week</span></div>
+    <div class="ledger-row"><span class="label">More than 1 year, up to 3 years</span><span class="filler"></span><span class="value">2 weeks</span></div>
+    <div class="ledger-row"><span class="label">More than 3 years, up to 5 years</span><span class="filler"></span><span class="value">3 weeks</span></div>
+    <div class="ledger-row total"><span class="label">More than 5 years</span><span class="filler"></span><span class="value">4 weeks</span></div>
+  </div>
+  <p class="ledger-note">Add an extra week if you're 45 or older with at least 2 years of service. Unlike redundancy pay, <strong>notice pay applies even at small businesses</strong> — there's no exemption. Your employer can either have you work the notice period, or pay you out instead ("payment in lieu").</p>
+
+  <h3>3. Unused annual leave</h3>
+  <p>Every employee is paid out any unused annual leave on termination, regardless of business size or reason for termination. It's simply your leave balance (in weeks) × your weekly pay — plus leave loading (commonly 17.5%) if your award or contract includes it.</p>
 
   <h2>Worked example</h2>
   <div class="example-box">
-    <p><strong>Scenario:</strong> an employee has worked 5 years and 3 months at a company with 40 staff, earning a base weekly rate of $1,500.</p>
-    <div class="receipt-line"><span>Service band</span><span>5–6 yrs → 10 wks</span></div>
-    <div class="receipt-line"><span>Base weekly pay</span><span>$1,500.00</span></div>
-    <div class="receipt-line"><span>Weeks entitled</span><span>× 10</span></div>
-    <div class="receipt-line final"><span>Minimum redundancy pay</span><span>$15,000.00</span></div>
-    <p style="margin-top:14px;">This is on top of any unused annual leave and, where applicable, long service leave owed at termination.</p>
+    <p><strong>Scenario:</strong> an employee aged 47 has worked 5 years and 3 months at a company with 40 staff, earning $1,500/week, with 2 weeks of unused annual leave (no leave loading).</p>
+    <div class="receipt-line"><span>Redundancy: 5–6 yrs → 10 wks</span><span>$15,000.00</span></div>
+    <div class="receipt-line"><span>Notice: 5+ yrs, 45+ → 5 wks</span><span>$7,500.00</span></div>
+    <div class="receipt-line"><span>Annual leave: 2 wks</span><span>$3,000.00</span></div>
+    <div class="receipt-line final"><span>Total estimated payout</span><span>$25,500.00</span></div>
   </div>
 
   <h2>Frequently asked questions</h2>
+  <p style="font-size:0.85rem; color:var(--ink-faint); margin-top:-8px;">Some links below are affiliate links — if you sign up through them, we may earn a small commission at no extra cost to you. This doesn't affect what we recommend.</p>
 
   <div class="faq-item">
     <h3>Does this apply to me if I'm a casual employee?</h3>
-    <p>No. Casual employees are generally not covered by the NES redundancy pay provisions, regardless of how long they've worked for the employer.</p>
+    <p>No. Casual employees are generally not covered by NES redundancy pay, notice, or annual leave provisions, regardless of how long they've worked for the employer.</p>
   </div>
 
   <div class="faq-item">
-    <h3>What counts as "base weekly pay"?</h3>
+    <h3>What counts as "your pay" for this calculator?</h3>
     <p>Your ordinary rate of pay for your normal hours of work. It excludes overtime, bonuses, loadings, allowances, and superannuation contributions.</p>
   </div>
 
   <div class="faq-item">
-    <h3>Is redundancy pay taxed?</h3>
-    <p>A genuine redundancy payment can be partly tax-free up to a limit set by the ATO each financial year, with amounts above that taxed as an employment termination payment (ETP). This calculator estimates your NES entitlement only — speak to a tax professional or check the ATO website for how tax applies to your specific payout.</p>
+    <h3>Is this payout taxed?</h3>
+    <p>A genuine redundancy payment can be partly tax-free up to a limit set by the ATO each financial year, with amounts above that taxed as an employment termination payment (ETP). Notice pay and leave payouts are generally taxed differently again. This calculator estimates your NES entitlement only — speak to a tax professional or check the ATO website for how tax applies to your specific payout.</p>
+  </div>
+
+  <div class="faq-item">
+    <h3>Do I get notice pay AND redundancy pay?</h3>
+    <p>Yes, they're separate entitlements and both apply to a genuine redundancy. Notice pay compensates for the notice period (worked or paid in lieu); redundancy pay compensates for the job loss itself.</p>
   </div>
 
   <div class="faq-item">
     <h3>What if my employer has fewer than 15 employees?</h3>
-    <p>Most small business employers (fewer than 15 employees) are exempt from paying NES redundancy pay. Check your award or employment contract, as some provide redundancy pay even where the NES doesn't require it.</p>
+    <p>Small business employers (fewer than 15 employees) are generally exempt from redundancy pay, but they still owe you notice pay and any unused annual leave in full — there's no small business exemption for those two. If you're an employer trying to manage redundancy obligations correctly, platforms like <a href="PASTE_EMPLOYMENT_HERO_AFFILIATE_LINK_HERE" target="_blank" rel="noopener noreferrer sponsored">Employment Hero</a> can help track entitlements and compliance.</p>
+  </div>
+
+  <div class="faq-item">
+    <h3>What if I think my redundancy isn't genuine?</h3>
+    <p>If you believe your role wasn't genuinely made redundant — for example, someone was hired to do the same job shortly after — you may have grounds for an unfair dismissal claim. You generally have <strong>21 days</strong> from your termination date to lodge with the Fair Work Commission, so it's worth getting advice quickly. Services like <a href="PASTE_LAWPATH_AFFILIATE_LINK_HERE" target="_blank" rel="noopener noreferrer sponsored">LawPath</a> connect you with employment lawyers for an initial consultation.</p>
   </div>
 
   <div class="faq-item">
     <h3>Can my award or contract give me more than this?</h3>
-    <p>Yes. This calculator shows the NES minimum only. Many modern awards, enterprise agreements, and individual contracts provide higher redundancy entitlements — always check what applies to your role.</p>
+    <p>Yes. This calculator shows the NES minimums only. Many modern awards, enterprise agreements, and individual contracts provide higher entitlements — always check what applies to your role.</p>
   </div>
 
   <div class="disclaimer">
-    <strong>Disclaimer:</strong> this calculator provides a general estimate of the NES minimum redundancy entitlement only. It is not legal or financial advice and does not account for individual awards, enterprise agreements, or employment contracts. For a binding assessment of your entitlements, contact the Fair Work Ombudsman or a qualified employment lawyer.
+    <strong>Disclaimer:</strong> this calculator provides a general estimate of NES minimum entitlements only. It is not legal or financial advice and does not account for individual awards, enterprise agreements, or employment contracts. For a binding assessment of your entitlements, contact the Fair Work Ombudsman or a qualified employment lawyer.
   </div>
 
-  <p class="source-note">Figures on this page are based on the National Employment Standards under the <em>Fair Work Act 2009</em>. For the official source, see the Fair Work Ombudsman's <a href="https://www.fairwork.gov.au/ending-employment/redundancy/redundancy-pay" target="_blank" rel="noopener noreferrer">redundancy pay fact sheet</a>.</p>
+  <div class="waitlist-box">
+    <h3>Want it checked against your actual documents?</h3>
+    <p>This calculator gives you the NES minimum based on what you enter. If you'd like a personalised review against your real payslip, employment letter, and award — including exact leave balances and any award-specific entitlements — join the waitlist for our upcoming document review service.</p>
+    <a class="waitlist-btn" href="mailto:decade.digitalhq@gmail.com?subject=Waitlist%20-%20Personalised%20Entitlement%20Review">Join the waitlist</a>
+  </div>
+
+  <p class="source-note">Figures on this page are based on the National Employment Standards under the <em>Fair Work Act 2009</em>. For the official source, see the Fair Work Ombudsman's <a href="https://www.fairwork.gov.au/ending-employment/redundancy/redundancy-pay" target="_blank" rel="noopener noreferrer">redundancy pay fact sheet</a> and <a href="https://www.fairwork.gov.au/ending-employment/dismissal" target="_blank" rel="noopener noreferrer">notice of termination fact sheet</a>.</p>
 </main>
 
 <footer>
@@ -137,7 +210,17 @@
 <script>
 document.getElementById('year').textContent = new Date().getFullYear();
 
-function getWeeksEntitlement(years) {
+function toWeekly(amount, period) {
+  switch (period) {
+    case 'weekly': return amount;
+    case 'fortnightly': return amount / 2;
+    case 'monthly': return amount * 12 / 52;
+    case 'yearly': return amount / 52;
+    default: return amount;
+  }
+}
+
+function getRedundancyWeeks(years) {
   if (years < 1) return 0;
   if (years < 2) return 4;
   if (years < 3) return 6;
@@ -151,54 +234,115 @@ function getWeeksEntitlement(years) {
   return 12;
 }
 
-function calculateRedundancy() {
+function getNoticeWeeks(years, over45) {
+  let base;
+  if (years <= 1) base = 1;
+  else if (years <= 3) base = 2;
+  else if (years <= 5) base = 3;
+  else base = 4;
+  if (over45 && years >= 2) base += 1;
+  return base;
+}
+
+function fmt(n) {
+  return '$' + n.toLocaleString('en-AU', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+}
+
+function calculatePayout() {
   const years = parseFloat(document.getElementById('years').value);
-  const weeklyPay = parseFloat(document.getElementById('weeklyPay').value);
+  const payAmount = parseFloat(document.getElementById('payAmount').value);
+  const payPeriod = document.getElementById('payPeriod').value;
   const smallBusiness = document.getElementById('smallBusiness').checked;
+  const over45 = document.getElementById('over45').checked;
+  const leaveWeeksInput = parseFloat(document.getElementById('leaveWeeks').value);
+  const leaveLoading = document.getElementById('leaveLoading').checked;
+
   const resultBox = document.getElementById('resultBox');
   const resultContent = document.getElementById('resultContent');
   const tearLine = document.getElementById('tearLine');
 
-  if (isNaN(years) || isNaN(weeklyPay) || years < 0 || weeklyPay < 0) {
+  if (isNaN(years) || isNaN(payAmount) || years < 0 || payAmount < 0) {
     tearLine.className = 'tear-line show';
     resultBox.className = 'result show';
-    resultContent.innerHTML = '<div class="label-row">Check your numbers</div><p>Please enter valid figures for years of service and weekly pay.</p>';
+    resultContent.innerHTML = '<div class="label-row">Check your numbers</div><p>Please enter valid figures for years of service and your pay.</p>';
     return;
   }
 
   tearLine.className = 'tear-line show';
 
-  if (smallBusiness) {
-    resultBox.className = 'result show exempt';
-    resultContent.innerHTML =
-      '<div class="stamp">Estimate</div>' +
-      '<div class="label-row">Likely outcome</div>' +
-      '<div class="amount">$0</div>' +
-      '<div class="weeks">Small business exemption likely applies</div>' +
-      '<div class="note">Employers with fewer than 15 employees are generally exempt from NES redundancy pay. Check your award or contract, as some provide redundancy pay regardless.</div>';
-    return;
-  }
+  const weeklyPay = toWeekly(payAmount, payPeriod);
+  const leaveWeeks = isNaN(leaveWeeksInput) || leaveWeeksInput < 0 ? 0 : leaveWeeksInput;
 
-  const weeks = getWeeksEntitlement(years);
-  const payout = weeks * weeklyPay;
+  const redundancyWeeks = smallBusiness ? 0 : getRedundancyWeeks(years);
+  const redundancyPay = redundancyWeeks * weeklyPay;
+
+  const noticeWeeks = getNoticeWeeks(years, over45);
+  const noticePay = noticeWeeks * weeklyPay;
+
+  const leaveMultiplier = leaveLoading ? 1.175 : 1;
+  const leavePay = leaveWeeks * weeklyPay * leaveMultiplier;
+
+  const total = redundancyPay + noticePay + leavePay;
 
   resultBox.className = 'result show';
 
-  if (weeks === 0) {
+  let breakdownNote = '';
+  if (smallBusiness) {
+    breakdownNote = '<div class="note">Small business exemption applied to redundancy pay ($0). Notice pay and leave payout are still owed regardless of business size.</div>';
+  } else {
+    breakdownNote = '<div class="note">This is the NES minimum estimate only. Your award, agreement, or contract may provide more. Long service leave (if applicable) is paid separately.</div>';
+  }
+
+  if (total === 0) {
     resultContent.innerHTML =
       '<div class="stamp">Estimate</div>' +
       '<div class="label-row">Your minimum entitlement</div>' +
       '<div class="amount">$0</div>' +
-      '<div class="weeks">Not yet eligible</div>' +
-      '<div class="note">NES redundancy pay requires at least 1 year of continuous service.</div>';
-  } else {
-    resultContent.innerHTML =
-      '<div class="stamp">Estimate</div>' +
-      '<div class="label-row">Your minimum entitlement</div>' +
-      '<div class="amount">$' + payout.toLocaleString('en-AU', {minimumFractionDigits: 2, maximumFractionDigits: 2}) + '</div>' +
-      '<div class="weeks">' + weeks + ' weeks × $' + weeklyPay.toLocaleString('en-AU') + ' base weekly pay</div>' +
-      '<div class="note">This is the NES minimum estimate only. Your award, agreement, or contract may provide more. Unused annual leave and long service leave (if applicable) are paid separately.</div>';
+      '<div class="weeks">Not yet eligible, or all fields are at zero</div>' +
+      breakdownNote;
+    return;
   }
+
+  const redPct = (redundancyPay / total) * 100;
+  const noticePct = (noticePay / total) * 100;
+  const leavePct = (leavePay / total) * 100;
+
+  const gradientParts = [];
+  let cursor = 0;
+  if (redundancyPay > 0) {
+    gradientParts.push('var(--teal) ' + cursor + '% ' + (cursor + redPct) + '%');
+    cursor += redPct;
+  }
+  if (noticePay > 0) {
+    gradientParts.push('var(--gold) ' + cursor + '% ' + (cursor + noticePct) + '%');
+    cursor += noticePct;
+  }
+  if (leavePay > 0) {
+    gradientParts.push('var(--clay) ' + cursor + '% ' + (cursor + leavePct) + '%');
+    cursor += leavePct;
+  }
+  const gradient = gradientParts.length > 0
+    ? 'conic-gradient(' + gradientParts.join(', ') + ')'
+    : 'var(--line)';
+
+  let legendHtml = '';
+  if (redundancyPay > 0) {
+    legendHtml += '<div class="legend-item"><span class="legend-swatch" style="background:var(--teal)"></span><span class="legend-label">Redundancy pay (' + redundancyWeeks + ' wks)</span><span class="legend-value">' + fmt(redundancyPay) + '</span></div>';
+  }
+  legendHtml += '<div class="legend-item"><span class="legend-swatch" style="background:var(--gold)"></span><span class="legend-label">Notice pay (' + noticeWeeks + ' wks)</span><span class="legend-value">' + fmt(noticePay) + '</span></div>';
+  if (leavePay > 0) {
+    legendHtml += '<div class="legend-item"><span class="legend-swatch" style="background:var(--clay)"></span><span class="legend-label">Annual leave (' + leaveWeeks + ' wks' + (leaveLoading ? ' +17.5%' : '') + ')</span><span class="legend-value">' + fmt(leavePay) + '</span></div>';
+  }
+
+  resultContent.innerHTML =
+    '<div class="stamp">Estimate</div>' +
+    '<div class="label-row">Your estimated total payout</div>' +
+    '<div class="amount">' + fmt(total) + '</div>' +
+    '<div class="donut-wrap">' +
+      '<div class="donut" style="background:' + gradient + '"><div class="donut-hole"><div class="total-label">Total</div><div class="total-amount">' + fmt(total).replace('.00','') + '</div></div></div>' +
+      '<div class="legend">' + legendHtml + '</div>' +
+    '</div>' +
+    breakdownNote;
 }
 </script>
 
