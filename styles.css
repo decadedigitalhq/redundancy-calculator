@@ -5,10 +5,11 @@
   --paper-raised: #ffffff;
   --ink: #142b28;
   --ink-soft: #46564f;
-  --ink-faint: #7c8a83;
+  --ink-faint: #5f6b65; /* darkened from #7c8a83 for WCAG AA contrast */
   --teal: #0b5d52;
   --teal-deep: #07332c;
   --gold: #b9873a;
+  --gold-text: #7d5a1d; /* gold for small text; brand gold kept for borders/icons */
   --gold-soft: #f3e6c8;
   --line: #dcdfd4;
   --line-strong: #c3c9ba;
@@ -122,7 +123,7 @@ main {
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--gold-text);
   margin-bottom: 10px;
 }
 
@@ -352,7 +353,7 @@ button.calc-btn:active { transform: translateY(1px); }
   font-size: 0.66rem;
   font-weight: 700;
   letter-spacing: 0.1em;
-  color: var(--gold);
+  color: var(--gold-text);
   border: 1.5px solid var(--gold);
   border-radius: 4px;
   padding: 3px 8px;
@@ -648,7 +649,30 @@ footer a {
 }
 
 footer a:hover { color: var(--paper); }
-footer p { color: #7f9791; }
+footer p { color: #9fb5ae; }
+
+/* ---------- Partner box (affiliate, disclosed) ---------- */
+
+.partner-box {
+  background: var(--teal-bg);
+  border: 1px solid var(--teal-line);
+  border-radius: var(--radius-sm);
+  padding: 18px 20px;
+  margin-top: 30px;
+}
+
+.partner-box h3 { margin-bottom: 6px; }
+.legal-page main .partner-box p { margin: 0 0 10px; }
+.legal-page main .partner-box p:last-child { margin-bottom: 0; }
+.partner-box .disclosure { font-size: 0.8rem; color: var(--ink-faint); }
+
+.reviewed-note {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  color: var(--ink-faint);
+  margin: 4px 0 30px;
+}
 
 /* ---------- Legal pages ---------- */
 
