@@ -3,6 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Google Analytics (GA4) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-P697HZBQ4J"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-P697HZBQ4J');</script>
+<script src="/analytics.js" defer></script>
 <title>Redundancy Pay Calculator Australia (NES) — For Employees & Employers</title>
 <meta name="description" content="Free Australian redundancy pay calculator based on the NES. Work out redundancy, notice and leave payout, for employees and employers.">
 
@@ -411,6 +415,16 @@ function calculatePayout() {
   const leavePay = leaveWeeks * weeklyPay * leaveMultiplier;
 
   const total = redundancyPay + noticePay + leavePay;
+
+  // GA4: record that the calculator was used. No pay amounts are sent.
+  if (typeof gtag === 'function') {
+    gtag('event', 'calculate', {
+      service_years: Math.min(Math.floor(years), 10),
+      pay_period: payPeriod,
+      small_business: smallBusiness,
+      includes_leave: leaveWeeks > 0
+    });
+  }
 
   resultBox.className = 'result show';
 
