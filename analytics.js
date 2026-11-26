@@ -6,7 +6,12 @@ document.addEventListener('click', function (e) {
   if (!a || typeof gtag !== 'function') return;
 
   if ((a.getAttribute('rel') || '').indexOf('sponsored') !== -1) {
-    var partner = a.hostname.indexOf('lawpath') !== -1 ? 'LawPath' : a.hostname;
+    var h = a.hostname;
+    var partner = h.indexOf('lawpath') !== -1 ? 'LawPath'
+                : h.indexOf('udemy') !== -1 ? 'Udemy'
+                : h.indexOf('coursera') !== -1 ? 'Coursera'
+                : h.indexOf('bizcover') !== -1 ? 'BizCover'
+                : h;
     gtag('event', 'affiliate_click', { partner: partner, link_page: location.pathname });
   } else if (a.classList.contains('waitlist-btn')) {
     gtag('event', 'waitlist_click', { link_page: location.pathname });
