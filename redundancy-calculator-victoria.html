@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Google Analytics (GA4) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-P697HZBQ4J"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-P697HZBQ4J');</script>
+<script src="/analytics.js" defer></script>
+<title>Redundancy Calculator Victoria 2026: Payout + Long Service Leave</title>
+<meta name="description" content="Free redundancy calculator for Victoria. Estimate redundancy pay, notice and annual leave under the NES, plus your Victorian long service leave payout after 7 years.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" href="favicon-32x32.png" type="image/png" sizes="32x32">
+<link rel="icon" href="favicon-16x16.png" type="image/png" sizes="16x16">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="canonical" href="https://ausredundancycalculator.com.au/redundancy-calculator-victoria">
+<link rel="stylesheet" href="styles.css">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Redundancy Calculator Victoria 2026: Payout + Long Service Leave">
+<meta property="og:description" content="Estimate redundancy pay, notice and annual leave under the NES, plus your Victorian long service leave payout after 7 years.">
+<meta property="og:url" content="https://ausredundancycalculator.com.au/redundancy-calculator-victoria">
+<meta property="og:site_name" content="Redundancy Calculator AU">
+<meta property="og:image" content="https://ausredundancycalculator.com.au/og-image.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Redundancy Calculator Victoria",
+  "url": "https://ausredundancycalculator.com.au/redundancy-calculator-victoria",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Any",
+  "inLanguage": "en-AU",
+  "description": "Estimates redundancy pay, notice pay and unused annual leave under the National Employment Standards, plus Victorian long service leave on termination after 7 years.",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "AUD" },
+  "publisher": { "@type": "Organization", "name": "Decade Digital HQ" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ausredundancycalculator.com.au/" },
+    { "@type": "ListItem", "position": 2, "name": "Redundancy calculator Victoria", "item": "https://ausredundancycalculator.com.au/redundancy-calculator-victoria" }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Is redundancy pay different in Victoria?",
+      "acceptedAnswer": { "@type": "Answer", "text": "For most Victorian employees, no. Victoria has referred its workplace relations powers to the Commonwealth, so redundancy pay and notice come from the National Employment Standards in the Fair Work Act, the same as most of Australia. What is different is long service leave, which comes from Victoria's Long Service Leave Act 2018." } },
+    { "@type": "Question", "name": "Do I get long service leave paid out when I'm made redundant in Victoria?",
+      "acceptedAnswer": { "@type": "Answer", "text": "If you have at least 7 years of continuous employment with the same employer, yes. Under Victoria's Long Service Leave Act 2018 you are paid any unused long service leave when your employment ends. It accrues at one week for every 60 weeks of continuous service." } },
+    { "@type": "Question", "name": "Do casual employees in Victoria get long service leave?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Victoria's long service leave law covers full-time, part-time, casual, seasonal and fixed-term work, as long as the employment is continuous. Casuals are generally not entitled to NES redundancy pay or notice, though." } },
+    { "@type": "Question", "name": "Does parental leave break my service for long service leave in Victoria?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No. Up to 104 weeks of paid or unpaid parental leave, and absences of any length due to illness or injury, do not break continuous employment for long service leave purposes in Victoria." } }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header>
+  <div class="inner">
+    <a href="/" class="logo">
+      <svg width="30" height="30" viewBox="0 0 512 512" aria-hidden="true">
+        <rect width="512" height="512" rx="112" fill="#07332c"/>
+        <rect x="128" y="96" width="256" height="320" rx="20" fill="#f4f4ef"/>
+        <rect x="128" y="96" width="256" height="66" rx="20" fill="#0b5d52"/>
+        <rect x="128" y="142" width="256" height="20" fill="#0b5d52"/>
+        <circle cx="166" cy="129" r="10" fill="#b9873a"/>
+        <rect x="168" y="210" width="150" height="16" rx="4" fill="none" stroke="#9aa398" stroke-width="2" stroke-dasharray="1 10" stroke-linecap="round"/>
+        <rect x="330" y="210" width="54" height="16" rx="4" fill="#46564f"/>
+        <rect x="168" y="256" width="150" height="16" rx="4" fill="none" stroke="#9aa398" stroke-width="2" stroke-dasharray="1 10" stroke-linecap="round"/>
+        <rect x="318" y="256" width="66" height="16" rx="4" fill="#46564f"/>
+        <line x1="152" y1="304" x2="384" y2="304" stroke="#c3c9ba" stroke-width="4" stroke-dasharray="10 8" stroke-linecap="round"/>
+        <rect x="290" y="324" width="94" height="30" rx="6" fill="#b9873a"/>
+      </svg>
+      Redundancy Calculator <span class="tag">AU</span>
+    </a>
+    <nav>
+      <a href="/about">About</a>
+      <a href="/guides">Guides</a>
+      <a href="/contact">Contact</a>
+      <a href="/privacy">Privacy</a>
+      <a href="/terms">Terms</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="eyebrow">Redundancy Calculator · Victoria</div>
+  <h1>Redundancy calculator for Victoria</h1>
+  <p class="subtitle">Made redundant in Victoria, or paying out a Victorian employee? Estimate redundancy pay, notice and unused annual leave under the National Employment Standards, plus the part most calculators leave out: your Victorian long service leave.</p>
+
+  <div class="calculator">
+    <div class="card-head"><span><span class="dot"></span>VIC Payout Estimate</span><span>NES 2026</span></div>
+    <div class="card-body">
+
+      <div class="section-label">Your service</div>
+
+      <div class="field">
+        <label for="years">Years of continuous service</label>
+        <input type="number" id="years" min="0" step="0.1" placeholder="e.g. 8">
+        <div class="hint">Use decimals for part years. 7.5 means 7 years and 6 months. Your start date is on your employment contract or letter of offer.</div>
+      </div>
+
+      <div class="field">
+        <label for="payAmount">Your pay</label>
+        <div class="field-row">
+          <input type="number" id="payAmount" min="0" step="1" placeholder="e.g. 1500">
+          <select id="payPeriod" aria-label="Pay period">
+            <option value="weekly">per week</option>
+            <option value="fortnightly">per fortnight</option>
+            <option value="monthly">per month</option>
+            <option value="yearly">per year</option>
+          </select>
+        </div>
+        <div class="hint">Your ordinary base rate only. Leave out overtime, bonuses, allowances and super.</div>
+      </div>
+
+      <div class="checkbox-field">
+        <input type="checkbox" id="smallBusiness">
+        <label for="smallBusiness">My employer has fewer than 15 employees (small business)</label>
+      </div>
+
+      <div class="checkbox-field">
+        <input type="checkbox" id="over45">
+        <label for="over45">I am over 45 and have 2+ years of service (extra week of notice)</label>
+      </div>
+
+      <div class="section-label">Leave balances (optional)</div>
+
+      <div class="field">
+        <label for="leaveWeeks">Unused annual leave (weeks)</label>
+        <input type="number" id="leaveWeeks" min="0" step="0.1" placeholder="e.g. 2.4">
+        <div class="hint">On your payslip. If it's in days, divide by 5 (12 days ÷ 5 = 2.4 weeks).</div>
+      </div>
+
+      <div class="checkbox-field">
+        <input type="checkbox" id="leaveLoading">
+        <label for="leaveLoading">My leave payout includes 17.5% leave loading (check your award or contract)</label>
+      </div>
+
+      <div class="checkbox-field">
+        <input type="checkbox" id="includeLsl" checked>
+        <label for="includeLsl">Include Victorian long service leave (applies after 7 years)</label>
+      </div>
+
+      <div class="field">
+        <label for="lslTaken">Long service leave already taken (weeks)</label>
+        <input type="number" id="lslTaken" min="0" step="0.1" placeholder="0">
+        <div class="hint">Leave blank if you haven't taken any. We subtract it from what you've built up.</div>
+      </div>
+
+      <button class="calc-btn" onclick="calculatePayout()">Calculate My Victorian Payout</button>
+
+      <div class="tear-line" id="tearLine"></div>
+      <div class="result" id="resultBox">
+        <div id="resultContent"></div>
+      </div>
+    </div>
+  </div>
+
+  <h2>What's different in Victoria</h2>
+  <p>For most Victorian employees, <strong>redundancy pay and notice are the same as the rest of Australia</strong>. Victoria has referred its workplace relations powers to the Commonwealth, so those come from the National Employment Standards (NES) in the <em>Fair Work Act 2009</em>. Some Victorian public sector employees have different arrangements, so check your enterprise agreement if that's you.</p>
+  <p>The real difference is <strong>long service leave</strong>. It isn't part of the NES. It comes from Victoria's <em>Long Service Leave Act 2018</em>, and on termination it can add several weeks' pay to your payout.</p>
+
+  <h2>Victorian long service leave on redundancy</h2>
+  <div class="ledger">
+    <div class="ledger-row"><span class="label">Qualifying period</span><span class="filler"></span><span class="value">7 years</span></div>
+    <div class="ledger-row"><span class="label">Accrual rate</span><span class="filler"></span><span class="value">1 wk per 60 wks</span></div>
+    <div class="ledger-row"><span class="label">About per year of service</span><span class="filler"></span><span class="value">0.866 wks</span></div>
+    <div class="ledger-row"><span class="label">After 7 years</span><span class="filler"></span><span class="value">≈ 6.07 wks</span></div>
+    <div class="ledger-row total"><span class="label">After 10 years</span><span class="filler"></span><span class="value">≈ 8.67 wks</span></div>
+  </div>
+  <p class="ledger-note">The formula is total weeks of continuous service ÷ 60. After at least 7 years with one employer, any <strong>unused long service leave is paid out when your employment ends</strong>, whatever the reason. Before 7 years, there's no payout under the Victorian Act.</p>
+  <ul>
+    <li><strong>Who it covers:</strong> full-time, part-time, casual, seasonal and fixed-term work, as long as the employment is continuous.</li>
+    <li><strong>What doesn't break your service:</strong> up to 104 weeks of paid or unpaid parental leave, and absences of any length due to illness or injury.</li>
+    <li><strong>Pay rate:</strong> normally your ordinary rate when the leave is paid. If your hours changed in recent years (say, from full-time to part-time), the Act uses an averaging rule, so the payout may differ from this estimate.</li>
+    <li><strong>Who enforces it:</strong> Workforce Inspectorate Victoria (called Wage Inspectorate Victoria until December 2025).</li>
+  </ul>
+
+  <h2>Worked example (Victoria)</h2>
+  <div class="example-box">
+    <p><strong>Scenario:</strong> a Melbourne employee aged 50 has worked 8 years at a company with 60 staff, earning $1,600 a week, with 3 weeks of unused annual leave (no loading) and no long service leave taken.</p>
+    <div class="receipt-line"><span>Redundancy: 8–9 yrs → 14 wks</span><span>$22,400.00</span></div>
+    <div class="receipt-line"><span>Notice: 5+ yrs, 45+ → 5 wks</span><span>$8,000.00</span></div>
+    <div class="receipt-line"><span>Annual leave: 3 wks</span><span>$4,800.00</span></div>
+    <div class="receipt-line"><span>VIC long service leave: 416 wks ÷ 60 ≈ 6.93 wks</span><span>$11,093.33</span></div>
+    <div class="receipt-line final"><span>Total estimated payout</span><span>$46,293.33</span></div>
+  </div>
+
+  <h2>Frequently asked questions</h2>
+
+  <div class="faq-item">
+    <h3>Is redundancy pay different in Victoria?</h3>
+    <p>For most employees, no. Redundancy pay and notice follow the NES, the same as most of Australia. The scale runs from 4 weeks' pay at 1 year of service up to 16 weeks at 9 years, dropping to 12 weeks at 10 years or more. What's different in Victoria is long service leave.</p>
+  </div>
+
+  <div class="faq-item">
+    <h3>Do I get long service leave paid out when I'm made redundant?</h3>
+    <p>If you've had at least 7 years of continuous employment with the same employer, yes. Any unused long service leave is paid out when your employment ends. Under 7 years, there's no payout under the Victorian Act.</p>
+  </div>
+
+  <div class="faq-item">
+    <h3>I'm a casual. Does any of this apply to me?</h3>
+    <p>Long service leave, yes. Victoria's law covers casual and seasonal employees with continuous employment. NES redundancy pay, notice and annual leave generally don't apply to casuals, so for a casual the long service leave figure may be the main amount owed.</p>
+  </div>
+
+  <div class="faq-item">
+    <h3>I'm a Victorian employer. Is this what I owe?</h3>
+    <p>It's a minimum estimate. Enter the employee's service and ordinary pay, and tick the small business box if you have fewer than 15 employees. That exempts you from redundancy pay, but notice, annual leave and long service leave are still owed. Your award, enterprise agreement or contract may require more.</p>
+  </div>
+
+  <div class="faq-item">
+    <h3>How is my payout taxed?</h3>
+    <p>Each part is taxed differently. The tax-free part of a genuine redundancy is set by the ATO each year, and unused long service leave has its own rules. See our <a href="/redundancy-payout-tax-guide">redundancy tax guide</a>.</p>
+  </div>
+
+  <div class="disclaimer">
+    <strong>Disclaimer:</strong> this calculator gives a general estimate of NES minimum entitlements and Victorian long service leave. It is not legal or financial advice, and it doesn't account for your award, enterprise agreement, contract, or the long service leave averaging rules. For a binding answer, contact the Fair Work Ombudsman, Workforce Inspectorate Victoria or a qualified employment lawyer.
+  </div>
+
+  <p class="ledger-note" style="margin-top:24px;">Last reviewed 26 November 2026 · Other states: <a href="/">national calculator</a> · <a href="/long-service-leave-after-redundancy">long service leave by state</a> · <a href="/genuine-redundancy-guide">is your redundancy genuine?</a></p>
+
+  <p class="source-note">Sources: <a href="https://www.vic.gov.au/long-service-leave" target="_blank" rel="noopener noreferrer">Workforce Inspectorate Victoria: Long service leave</a> (<em>Long Service Leave Act 2018</em> (Vic)); Fair Work Ombudsman: <a href="https://www.fairwork.gov.au/ending-employment/redundancy/redundancy-pay" target="_blank" rel="noopener noreferrer">redundancy pay</a> and <a href="https://www.fairwork.gov.au/ending-employment/dismissal" target="_blank" rel="noopener noreferrer">notice of termination</a>; <a href="https://www.vic.gov.au/public-sector-industrial-relations-policies-2025/industrial-relations-landscape" target="_blank" rel="noopener noreferrer">Victorian Government: application of the Fair Work Act</a>.</p>
+</main>
+
+<footer>
+  <div>
+    <a href="/about">About</a> ·
+    <a href="/guides">Guides</a> ·
+    <a href="/contact">Contact</a> ·
+    <a href="/privacy">Privacy Policy</a> ·
+    <a href="/terms">Terms of Use</a>
+  </div>
+  <p style="margin-top:10px;">© <span id="year"></span> Redundancy Calculator AU, operated by Decade Digital HQ. Not affiliated with the Fair Work Ombudsman, Workforce Inspectorate Victoria or any government.</p>
+</footer>
+
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+
+function toWeekly(amount, period) {
+  switch (period) {
+    case 'weekly': return amount;
+    case 'fortnightly': return amount / 2;
+    case 'monthly': return amount * 12 / 52;
+    case 'yearly': return amount / 52;
+    default: return amount;
+  }
+}
+
+function getRedundancyWeeks(years) {
+  if (years < 1) return 0;
+  if (years < 2) return 4;
+  if (years < 3) return 6;
+  if (years < 4) return 7;
+  if (years < 5) return 8;
+  if (years < 6) return 10;
+  if (years < 7) return 11;
+  if (years < 8) return 13;
+  if (years < 9) return 14;
+  if (years < 10) return 16;
+  return 12;
+}
+
+function getNoticeWeeks(years, over45) {
+  let base;
+  if (years <= 1) base = 1;
+  else if (years <= 3) base = 2;
+  else if (years <= 5) base = 3;
+  else base = 4;
+  if (over45 && years >= 2) base += 1;
+  return base;
+}
+
+// Victorian LSL: total weeks of continuous service / 60, payable on termination after 7 years.
+function getVicLslWeeks(years) {
+  if (years < 7) return 0;
+  return (years * 52) / 60;
+}
+
+function fmt(n) {
+  return '$' + n.toLocaleString('en-AU', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+}
+
+function round2(n) { return Math.round(n * 100) / 100; }
+
+function calculatePayout() {
+  const years = parseFloat(document.getElementById('years').value);
+  const payAmount = parseFloat(document.getElementById('payAmount').value);
+  const payPeriod = document.getElementById('payPeriod').value;
+  const smallBusiness = document.getElementById('smallBusiness').checked;
+  const over45 = document.getElementById('over45').checked;
+  const leaveWeeksInput = parseFloat(document.getElementById('leaveWeeks').value);
+  const leaveLoading = document.getElementById('leaveLoading').checked;
+  const includeLsl = document.getElementById('includeLsl').checked;
+  const lslTakenInput = parseFloat(document.getElementById('lslTaken').value);
+
+  const resultBox = document.getElementById('resultBox');
+  const resultContent = document.getElementById('resultContent');
+  const tearLine = document.getElementById('tearLine');
+
+  if (isNaN(years) || isNaN(payAmount) || years < 0 || payAmount < 0) {
+    tearLine.className = 'tear-line show';
+    resultBox.className = 'result show';
+    resultContent.innerHTML = '<div class="label-row">Check your numbers</div><p>Please enter valid figures for years of service and your pay.</p>';
+    return;
+  }
+
+  tearLine.className = 'tear-line show';
+
+  const weeklyPay = toWeekly(payAmount, payPeriod);
+  const leaveWeeks = isNaN(leaveWeeksInput) || leaveWeeksInput < 0 ? 0 : leaveWeeksInput;
+  const lslTaken = isNaN(lslTakenInput) || lslTakenInput < 0 ? 0 : lslTakenInput;
+
+  const redundancyWeeks = smallBusiness ? 0 : getRedundancyWeeks(years);
+  const redundancyPay = redundancyWeeks * weeklyPay;
+
+  const noticeWeeks = getNoticeWeeks(years, over45);
+  const noticePay = noticeWeeks * weeklyPay;
+
+  const leaveMultiplier = leaveLoading ? 1.175 : 1;
+  const leavePay = leaveWeeks * weeklyPay * leaveMultiplier;
+
+  const lslWeeks = includeLsl ? Math.max(0, getVicLslWeeks(years) - lslTaken) : 0;
+  const lslPay = lslWeeks * weeklyPay;
+
+  const total = redundancyPay + noticePay + leavePay + lslPay;
+
+  // GA4: record that the calculator was used. No pay amounts are sent.
+  if (typeof gtag === 'function') {
+    gtag('event', 'calculate', {
+      service_years: Math.min(Math.floor(years), 10),
+      pay_period: payPeriod,
+      small_business: smallBusiness,
+      includes_leave: leaveWeeks > 0,
+      state: 'VIC',
+      includes_lsl: lslPay > 0
+    });
+  }
+
+  resultBox.className = 'result show';
+
+  let notes = [];
+  if (smallBusiness) notes.push('Small business exemption applied to redundancy pay ($0). Notice, annual leave and long service leave are still owed.');
+  if (includeLsl && years < 7) notes.push('Long service leave: under 7 years of service, so there is no payout under the Victorian Act.');
+  notes.push('NES minimums plus Victorian long service leave. Your award, agreement or contract may give more, and the LSL averaging rule can change the figure if your hours changed.');
+  const breakdownNote = '<div class="note">' + notes.join(' ') + '</div>';
+
+  if (total === 0) {
+    resultContent.innerHTML =
+      '<div class="stamp">Estimate</div>' +
+      '<div class="label-row">Your minimum entitlement</div>' +
+      '<div class="amount">$0</div>' +
+      '<div class="weeks">Not yet eligible, or all fields are at zero</div>' +
+      breakdownNote;
+    return;
+  }
+
+  const parts = [
+    { val: redundancyPay, color: 'var(--teal)', label: 'Redundancy pay (' + redundancyWeeks + ' wks)', show: redundancyPay > 0 },
+    { val: noticePay, color: 'var(--gold)', label: 'Notice pay (' + noticeWeeks + ' wks)', show: true },
+    { val: leavePay, color: 'var(--clay)', label: 'Annual leave (' + leaveWeeks + ' wks' + (leaveLoading ? ' +17.5%' : '') + ')', show: leavePay > 0 },
+    { val: lslPay, color: 'var(--ink-faint)', label: 'VIC long service leave (' + round2(lslWeeks) + ' wks)', show: lslPay > 0 }
+  ];
+
+  const gradientParts = [];
+  let cursor = 0;
+  let legendHtml = '';
+  parts.forEach(function (p) {
+    if (!p.show) return;
+    if (p.val > 0) {
+      const pct = (p.val / total) * 100;
+      gradientParts.push(p.color + ' ' + cursor + '% ' + (cursor + pct) + '%');
+      cursor += pct;
+    }
+    legendHtml += '<div class="legend-item"><span class="legend-swatch" style="background:' + p.color + '"></span><span class="legend-label">' + p.label + '</span><span class="legend-value">' + fmt(p.val) + '</span></div>';
+  });
+  const gradient = gradientParts.length > 0 ? 'conic-gradient(' + gradientParts.join(', ') + ')' : 'var(--line)';
+
+  resultContent.innerHTML =
+    '<div class="stamp">Estimate</div>' +
+    '<div class="label-row">Your estimated total payout (VIC)</div>' +
+    '<div class="amount">' + fmt(total) + '</div>' +
+    '<div class="donut-wrap">' +
+      '<div class="donut" style="background:' + gradient + '"><div class="donut-hole"><div class="total-label">Total</div><div class="total-amount">$' + Math.round(total).toLocaleString('en-AU') + '</div></div></div>' +
+      '<div class="legend">' + legendHtml + '</div>' +
+    '</div>' +
+    breakdownNote;
+}
+</script>
+
+</body>
+</html>
